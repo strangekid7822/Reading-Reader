@@ -1,0 +1,58 @@
+[
+  {
+    "exerciseId": "reading-0001",
+    "article": {
+      "body": "When I was growing up, I had an old neighbor named Doctor Gibbs. He didn’t look like any doctor I’d ever known. He never yelled at us for playing in his yard, but was always very kind.\n\nWhen Doctor Gibbs wasn’t saving lives, he was planting trees. He had some interesting theories about planting trees. He hardly watered his new trees, an attitude which flew in the face of conventional wisdom.\n\nOnce I asked why and he told me that watering plants spoiled them because it made them grow weaker. He said he had to make things tough for the trees so that only the strongest could survive. He talked about how watering trees made them develop shallow roots and how, if they were not watered, trees would grow deep roots in search of water.\n\nSo, instead of watering his trees every morning, he’d beat them with a rolled-up newspaper. I asked him why he did that, and he said it was to get the trees’ attention.\n\nDoctor Gibbs died a couple of years after I left home. Every now and then, I walked by his house and looked at the trees that I’d watched him plant some 25 years ago. They were tall and strong.\n\nEvery night before I go to bed I check on my two sons. I often pray that their lives will be easy. But lately I’ve been thinking that it’s time to change my prayer. I know my children are going to encounter hardship. There’s always a cold wind blowing somewhere. What I need to do is pray for deep roots, so when the rain falls and the winds blow, they won’t be torn apart."
+    },
+    "questions": [
+      {
+        "qId": 1,
+        "text": "1. What did the author think of Doctor Gibbs’s theories about planting trees at first?",
+        "options": [
+          "A. Perfect.",
+          "B. Puzzled.",
+          "C. Amused.",
+          "D. Impractical."
+        ],
+        "answer": 1,
+        "explanation": "根据第二段居句和第三段句可知，吉布斯医生几乎不给刚栽的树浇水，他的理论与大多数人的看法相悖；作者询问他为什么这么做。据此可以推断，作者起初对吉布斯医生的树法感到困惑，故 B 项正确。"
+      },
+      {
+        "qId": 2,
+        "text": "2. What did Doctor Gibbs do to the trees he planted?",
+        "options": [
+          "A. He let them grow quickly.",
+          "B. He beat them to get their attention.",
+          "C. He helped them search for water.",
+          "D. He read a newspaper near them."
+        ],
+        "answer": 1,
+        "explanation": "根据第三段可知，吉布斯医生是每天早上给树浇水，而是用一张卷起的报纸去打它们，他这么做是为了引起树的注意。故 B 项正确。"
+      },
+      {
+        "qId": 3,
+        "text": "3. Which of the following can best describe Doctor Gibbs?",
+        "options": [
+          "A. Kind and wise.",
+          "B. Calm and brave.",
+          "C. Careful and ambitious.",
+          "D. Strict and devoted."
+        ],
+        "answer": 0,
+        "explanation": "根据第一段中的 “but was always very kind” 可知，吉布斯医生是友好的；再根据第二、三、四、五段叙述的吉布斯医生不浇水等种树的方法（几乎不给刚栽的树浇水，击打树以引起树的注意）最终使得树长得又高又壮可以推断，他是一位有智慧的人。故 A 项正确。"
+      },
+      {
+        "qId": 4,
+        "text": "4. What does the author learn from Doctor Gibbs?",
+        "options": [
+          "A. Elders are treasures.",
+          "B. Two heads are better than one.",
+          "C. A man without distant care must have near sorrow.",
+          "D. Only those who bear the most become the highest."
+        ],
+        "answer": 3,
+        "explanation": "根据最后段最后一句 “pray for deep roots” 结合上文谈到的经历“困难”后树长得又高又壮可以推知 D 项正确。"
+      }
+    ]
+  }
+]
