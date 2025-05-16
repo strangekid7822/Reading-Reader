@@ -27,19 +27,28 @@ export default function BottomPanel({
         alignItems: 'center',
         paddingTop: '15px',
         paddingBottom: submitted ? '60px' : '30px',
-        overflow: 'hidden',
-        transition: 'padding-bottom 0.3s ease'
+        transition: 'padding-bottom 0.3s ease, height 0.3s ease',
+        height: submitted ? '55vh' : '40vh',
       }}
     >
-      {/* swiper */}
-      <QuestionSwiper
-        questions={questions}
-        answers={answers}
-        submitted={submitted}
-        handleSelect={handleSelect}
-        correctAnswers={correctAnswers}
-        handleScroll={handleScroll}
-      />
+      <div
+        style={{
+          flex: 1,
+          width: '100%',
+          overflowY: submitted ? 'auto' : 'hidden',
+          minHeight: 0,
+          WebkitOverflowScrolling: 'touch',
+        }}
+      >
+        <QuestionSwiper
+          questions={questions}
+          answers={answers}
+          submitted={submitted}
+          handleSelect={handleSelect}
+          correctAnswers={correctAnswers}
+          handleScroll={handleScroll}
+        />
+      </div>
 
       {/* dots pagination */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
