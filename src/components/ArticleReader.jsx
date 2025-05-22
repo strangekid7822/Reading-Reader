@@ -2,24 +2,16 @@
 export default function ArticleReader({ height, children }) {
   return (
     <main
-      style={{
-        marginTop: '48px',
-        height,
-        overflowY: 'auto',
-        WebkitOverflowScrolling: 'touch',
-        WebkitTouchCallout: 'none',
-        userSelect: 'none',
-        WebkitUserSelect: 'none',
-        padding: '10px'
-      }}
+      className="mt-12 overflow-y-auto p-2.5" // Removed select-none
+      style={{ height }}
     >
-      <div style={{ textIndent: '2em' }}>
+      <div className="indent-8">
         {typeof children === 'string'
           ? children
               .split(/\n\s*\n/)
               .filter(Boolean)
               .map((para, idx) => (
-                <p key={idx} style={{ marginBottom: '1em' }}>
+                <p key={idx} className="mb-4">
                   {para.trim()}
                 </p>
               ))

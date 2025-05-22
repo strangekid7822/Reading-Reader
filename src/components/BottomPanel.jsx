@@ -16,29 +16,10 @@ export default function BottomPanel({
   return (
     <section
       ref={footerRef}
-      style={{
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        background: '#ddd',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        paddingTop: '15px',
-        paddingBottom: submitted ? '60px' : '30px',
-        transition: 'padding-bottom 0.3s ease, height 0.3s ease',
-        height: submitted ? '55vh' : '40vh',
-      }}
+      className={`fixed bottom-0 w-full bg-gray-300 flex flex-col justify-start items-center pt-4 transition-all duration-300 ease-in-out ${submitted ? 'pb-16 h-3/5' : 'pb-8 h-2/5'}`}
     >
       <div
-        style={{
-          flex: 1,
-          width: '100%',
-          overflowY: submitted ? 'auto' : 'hidden',
-          minHeight: 0,
-          WebkitOverflowScrolling: 'touch',
-        }}
+        className={`flex-1 w-full min-h-0 ${submitted ? 'overflow-y-auto' : 'overflow-hidden'}`}
       >
         <QuestionSwiper
           questions={questions}
@@ -51,17 +32,11 @@ export default function BottomPanel({
       </div>
 
       {/* dots pagination */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+      <div className="flex justify-center mt-2.5">
         {questions.map((_, idx) => (
           <div
             key={idx}
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: idx === currentIndex ? '#555' : '#ccc',
-              margin: '0 4px'
-            }}
+            className={`w-2 h-2 rounded-full mx-1 ${idx === currentIndex ? 'bg-gray-700' : 'bg-gray-400'}`}
           ></div>
         ))}
       </div>
