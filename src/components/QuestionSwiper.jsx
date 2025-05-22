@@ -10,33 +10,9 @@ export default function QuestionSwiper({
   handleScroll
 }) {
   return (
-    <div style={{ position: 'relative' }}>
-      <style>
-        {`
-          .swiper-container::-webkit-scrollbar {
-            display: none;
-          }
-          .swiper-container {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE/Edge */
-          }
-        `}
-      </style>
+    <div className="relative">
       <div
-        className="swiper-container"
-        style={{
-          display: 'flex',
-          overflowX: 'auto',
-          overflowY: 'hidden',
-          height: '100%',
-          scrollSnapType: 'x mandatory',
-          scrollBehavior: 'smooth',
-          WebkitOverflowScrolling: 'touch',
-          width: '100%',
-          overscrollBehaviorX: 'contain',
-          justifyContent: 'flex-start',
-          touchAction: 'pan-y'
-        }}
+        className="swiper-container flex overflow-x-auto overflow-y-hidden h-full snap-x snap-mandatory scroll-smooth overscroll-x-contain justify-start touch-pan-y hide-scrollbar"
         onScroll={handleScroll}
       >
         {questions.map((q, i) => (

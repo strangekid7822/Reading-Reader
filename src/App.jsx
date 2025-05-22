@@ -49,16 +49,12 @@ function App() {
     return `${m}:${sec}`;
   };
 
-  const timerStyle = {
-    color: seconds >= 300 ? 'red' : 'black',
-    animation: seconds >= 360 ? 'blink 1s step-start infinite' : 'none'
-  };
-
   // UI Layout: Timer (top), Reading (scrollable), Questions (bottom)
   return (
-    <div style={{ fontFamily: 'sans-serif', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="flex flex-col h-screen font-sans">
       {/* Fixed timer / score bar */}
       <TimerBar
+        seconds={seconds} // Pass seconds to TimerBar
         submitted={submitted}
         timerText={
           !submitted
@@ -81,7 +77,7 @@ function App() {
           .split(/\n\s*\n/)
           .filter(Boolean)
           .map((para, idx) => (
-            <p key={idx} style={{ marginBottom: '1em' }}>
+             <p key={idx}>
               {para.trim()}
             </p>
           ))}
@@ -103,21 +99,6 @@ function App() {
         correctAnswers={correctAnswers}
         handleScroll={handleScroll}
       />
-      <style>
-        {`
-          html, body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-            -webkit-overflow-scrolling: touch;
-          }
-          @keyframes blink {
-            50% { opacity: 0; }
-          }
-        `}
-      </style>
     </div>
   );
 }

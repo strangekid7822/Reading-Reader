@@ -1,38 +1,17 @@
 // Top fixed bar – shows timer before submit, score after submit
-export default function TimerBar({ submitted, timerText, allAnswered, onSubmit }) {
+export default function TimerBar({ seconds, submitted, timerText, allAnswered, onSubmit }) {
+    const timerColorClass = seconds >= 300 ? 'text-red-500' : 'text-black';
+    const timerAnimationClass = seconds >= 360 ? 'animate-blink' : '';
+
     return (
-      <header
-        style={{
-          position: 'fixed',
-          top: 0,
-          width: '100%',
-          height: '48px',
-          background: '#eee',
-          zIndex: 1,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '0 1.2rem',
-          boxSizing: 'border-box'
-        }}
-      >
-        <h2 style={{ margin: 0 }}>{timerText}</h2>
+      <header className="fixed top-0 w-full h-12 bg-gray-200 z-10 flex justify-between items-center px-5 box-border">
+        <h2 className={`m-0 text-lg font-medium ${timerColorClass} ${timerAnimationClass}`}>{timerText}</h2>
         
         {!submitted && (
           <button
             onClick={onSubmit}
             disabled={!allAnswered}
-            style={{
-              backgroundColor: allAnswered ? '#4CAF50' : '#ccc',
-              color: 'white',
-              border: 'none',
-              padding: '6px 16px',
-              minWidth: '80px',
-              borderRadius: '6px',
-              textAlign: 'center',
-              fontSize: '14px',
-              cursor: allAnswered ? 'pointer' : 'default'
-            }}
+            className={`text-white border-none px-4 py-1.5 min-w-[80px] rounded-md text-sm ${allAnswered ? 'bg-green-500 cursor-pointer' : 'bg-gray-400 cursor-default'}`}
           >
             提交
           </button>
