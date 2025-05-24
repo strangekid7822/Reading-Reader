@@ -13,8 +13,7 @@ export default function QuestionCard({
           height: '100%',
           overflowY: submitted ? 'auto' : 'hidden',
           WebkitOverflowScrolling: submitted ? 'touch' : 'auto',
-          paddingRight: '4px',
-          touchAction: submitted ? 'pan-y' : 'auto'
+          paddingRight: '4px'
         }}>
           <h4>{question.text}</h4>
           <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -61,8 +60,7 @@ export default function QuestionCard({
                 borderRadius: '4px',
                 maxHeight: '30%',  // show a hint of the explanation
                 overflowY: 'auto',
-                WebkitOverflowScrolling: 'touch',
-                touchAction: 'pan-y'
+                WebkitOverflowScrolling: 'touch'
               }}
             >
               <strong>解析：</strong> {question.explanation}

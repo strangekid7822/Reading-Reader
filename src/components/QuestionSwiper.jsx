@@ -34,8 +34,7 @@ export default function QuestionSwiper({
           WebkitOverflowScrolling: 'touch',
           width: '100%',
           overscrollBehaviorX: 'contain',
-          justifyContent: 'flex-start',
-          touchAction: 'pan-y'
+          justifyContent: 'flex-start'
         }}
         onScroll={handleScroll}
       >
