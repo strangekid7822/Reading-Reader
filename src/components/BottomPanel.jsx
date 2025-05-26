@@ -35,7 +35,7 @@ export default function BottomPanel({
       </div>
 
       {/* dots pagination */}
-      <div className="flex justify-center mt-3 pb-2">
+      <div className="flex justify-center mt-2 pb-safe pb-4">
         {questions.map((_, idx) => (
           <div
             key={idx}
