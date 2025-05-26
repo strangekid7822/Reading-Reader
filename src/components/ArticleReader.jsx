@@ -2,7 +2,7 @@
 export default function ArticleReader({ height, children }) {
   return (
     <main
-      className="mt-15 overflow-y-auto p-6 bg-white/80 backdrop-blur-sm mx-4 my-4 rounded-xl shadow-sm border border-gray-100"
+      className="mt-15 overflow-y-auto p-6 bg-white/80 backdrop-blur-sm mx-4 my-4 shadow-sm border border-gray-100"
       style={{
         height,
         WebkitOverflowScrolling: 'touch',
@@ -17,7 +17,7 @@ export default function ArticleReader({ height, children }) {
               .split(/\n\s*\n/)
               .filter(Boolean)
               .map((para, idx) => (
-                <p key={idx} className="mb-4 leading-relaxed text-gray-700 text-base">
+                <p key={idx} className="mb-4 leading-relaxed text-gray-700 text-base sm:text-lg md:text-xl">
                   {para.trim()}
                 </p>
               ))

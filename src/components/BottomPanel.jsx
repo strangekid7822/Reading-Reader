@@ -19,8 +19,8 @@ export default function BottomPanel({
       className={`
         fixed bottom-0 w-full bg-gradient-to-t from-white via-white/95 to-white/90 
         backdrop-blur-md border-t border-gray-200 flex flex-col justify-start items-center 
-        pt-4 shadow-2xl transition-all duration-300 ease-in-out
-        ${submitted ? 'pb-15 h-[55vh]' : 'pb-8 h-[40vh]'}
+        pt-4 pb-4 shadow-2xl transition-all duration-300 ease-in-out
+        ${submitted ? 'h-[55vh]' : 'h-[40vh]'}
       `}
     >
       <div className="flex-1 w-full overflow-y-auto min-h-0" style={{ WebkitOverflowScrolling: 'touch' }}>

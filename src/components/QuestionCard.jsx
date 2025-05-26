@@ -8,23 +8,27 @@ export default function QuestionCard({
     correctIndex
   }) {
     return (
-      <div className="min-w-[85%] max-w-[85%] flex-shrink-0 p-4 scroll-snap-start">
+      <div className="min-w-[85%] max-w-[85%] flex-shrink-0 p-4 px-2 sm:px-4 scroll-snap-start">
         <div 
           className={`h-full pr-1 ${submitted ? 'overflow-y-auto' : 'overflow-y-hidden'}`}
           style={{ WebkitOverflowScrolling: submitted ? 'touch' : 'auto' }}
         >
-          <h4 className="text-lg font-semibold text-gray-800 mb-4 leading-relaxed">
+          <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 leading-relaxed">
             {question.text}
           </h4>
           
-          <ul className="list-none p-0 space-y-3">
+          <ul className="list-none p-0 space-y-2">
             {question.options.map((opt, j) => {
               const isChosen = answers[index] === j;
               const isCorrect = j === correctIndex;
               
               let buttonClasses = `
-                w-full text-left whitespace-normal break-words p-4 rounded-xl
+                w-full box-border text-left whitespace-normal break-words
+                py-2 sm:py-3 md:py-4 px-4
+                rounded-xl mx-auto my-2
                 transition-all duration-200 font-medium border-2 shadow-sm
+                text-base sm:text-lg md:text-xl
+                max-w-[90%] sm:max-w-[75%] md:max-w-lg
               `;
               
               if (submitted) {
@@ -61,8 +65,8 @@ export default function QuestionCard({
             <div className="mt-6 bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-xl border border-gray-200 max-h-[30%] overflow-y-auto shadow-inner"
                  style={{ WebkitOverflowScrolling: 'touch' }}>
               <div className="flex items-start space-x-2">
-                <span className="font-bold text-indigo-600 flex-shrink-0">解析：</span>
-                <span className="text-gray-700 leading-relaxed">{question.explanation}</span>
+                <span className="text-sm sm:text-base md:text-lg font-bold text-indigo-600 flex-shrink-0">解析：</span>
+                <span className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">{question.explanation}</span>
               </div>
             </div>
           )}
