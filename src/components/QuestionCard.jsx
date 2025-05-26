@@ -61,8 +61,7 @@ export default function QuestionCard({
           </ul>
           
           {submitted && (
-            <div className="mt-6 bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-xl border border-gray-200 max-h-[30%] overflow-y-auto shadow-inner"
-                 style={{ WebkitOverflowScrolling: 'touch' }}>
+            <div className="mt-6 bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner">
               <div className="flex items-start space-x-2">
                 <span className="text-sm sm:text-base md:text-lg font-bold text-indigo-600 flex-shrink-0">解析：</span>
                 <span className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">{question.explanation}</span>
