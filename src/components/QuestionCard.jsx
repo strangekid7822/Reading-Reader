@@ -13,7 +13,8 @@ export default function QuestionCard({
           className={`h-full pr-1 ${submitted ? 'overflow-y-auto' : 'overflow-y-hidden'}`}
           style={{ WebkitOverflowScrolling: submitted ? 'touch' : 'auto' }}
         >
-          <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 leading-relaxed">
+          {/* Reduced margin-bottom from mb-4 to mb-2 */}
+          <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-2 leading-relaxed">
             {question.text}
           </h4>
           
