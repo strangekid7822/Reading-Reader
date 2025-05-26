@@ -2,7 +2,7 @@
 export default function ArticleReader({ height, children }) {
   return (
     <main
-      className="mt-15 overflow-y-auto p-6 bg-white/80 backdrop-blur-sm mx-4 my-4 shadow-sm border border-gray-100"
+      className="mt-15 overflow-y-auto py-4 px-2 sm:px-4 md:px-8 bg-white/80 backdrop-blur-sm my-4 shadow-sm border border-gray-100"
       style={{
         height,
         WebkitOverflowScrolling: 'touch',
