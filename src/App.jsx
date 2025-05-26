@@ -119,6 +119,20 @@ function App() {
           .timer-danger {
             animation: pulse-red 1s ease-in-out infinite;
           }
+          /* Add slideDown animation for explanation card */
+          @keyframes slideDown {
+            0% {
+              transform: translateY(-150%) scale(0.95);
+              opacity: 0;
+            }
+            50% {
+              opacity: 0.5;
+            }
+            100% {
+              transform: translateY(0) scale(1);
+              opacity: 1;
+            }
+          }
         `}
       </style>
     </div>
