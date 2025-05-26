@@ -10,7 +10,7 @@ export default function QuestionSwiper({
   handleScroll
 }) {
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="relative">
       <style>
         {`
           .swiper-container::-webkit-scrollbar {
@@ -23,18 +23,12 @@ export default function QuestionSwiper({
         `}
       </style>
       <div
-        className="swiper-container"
+        className="swiper-container flex overflow-x-auto overflow-y-hidden h-full w-full justify-start"
         style={{
-          display: 'flex',
-          overflowX: 'auto',
-          overflowY: 'hidden',
-          height: '100%',
           scrollSnapType: 'x mandatory',
           scrollBehavior: 'smooth',
           WebkitOverflowScrolling: 'touch',
-          width: '100%',
           overscrollBehaviorX: 'contain',
-          justifyContent: 'flex-start'
         }}
         onScroll={handleScroll}
       >

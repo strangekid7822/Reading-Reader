@@ -49,14 +49,9 @@ function App() {
     return `${m}:${sec}`;
   };
 
-  const timerStyle = {
-    color: seconds >= 300 ? 'red' : 'black',
-    animation: seconds >= 360 ? 'blink 1s step-start infinite' : 'none'
-  };
-
   // UI Layout: Timer (top), Reading (scrollable), Questions (bottom)
   return (
-    <div style={{ fontFamily: 'sans-serif', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="font-sans h-screen flex flex-col bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Fixed timer / score bar */}
       <TimerBar
         submitted={submitted}
@@ -72,16 +67,17 @@ function App() {
           setUsedTime(seconds);
           setSubmitted(true);
         }}
+        seconds={seconds}
       />
 
       {/* Scrollable article */}
-      <ArticleReader height={`calc(100dvh - ${footerHeight}px - 48px)`}>
-        {article.title && <h3>{article.title}</h3>}
+      <ArticleReader height={`calc(100dvh - ${footerHeight}px - 60px)`}>
+        {article.title && <h3 className="text-2xl font-bold text-gray-800 mb-6">{article.title}</h3>}
         {article.body
           .split(/\n\s*\n/)
           .filter(Boolean)
           .map((para, idx) => (
-            <p key={idx} style={{ marginBottom: '1em' }}>
+            <p key={idx} className="mb-4 leading-relaxed text-gray-700">
               {para.trim()}
             </p>
           ))}
@@ -115,6 +111,13 @@ function App() {
           }
           @keyframes blink {
             50% { opacity: 0; }
+          }
+          @keyframes pulse-red {
+            0%, 100% { color: #dc2626; }
+            50% { color: #ef4444; }
+          }
+          .timer-danger {
+            animation: pulse-red 1s ease-in-out infinite;
           }
         `}
       </style>

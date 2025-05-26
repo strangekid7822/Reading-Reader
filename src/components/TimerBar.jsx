@@ -1,42 +1,37 @@
 // Top fixed bar – shows timer before submit, score after submit
-export default function TimerBar({ submitted, timerText, allAnswered, onSubmit }) {
-    return (
-      <header
-        style={{
-          position: 'fixed',
-          top: 0,
-          width: '100%',
-          height: '48px',
-          background: '#eee',
-          zIndex: 1,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '0 1.2rem',
-          boxSizing: 'border-box'
-        }}
-      >
-        <h2 style={{ margin: 0 }}>{timerText}</h2>
-        
-        {!submitted && (
-          <button
-            onClick={onSubmit}
-            disabled={!allAnswered}
-            style={{
-              backgroundColor: allAnswered ? '#4CAF50' : '#ccc',
-              color: 'white',
-              border: 'none',
-              padding: '6px 16px',
-              minWidth: '80px',
-              borderRadius: '6px',
-              textAlign: 'center',
-              fontSize: '14px',
-              cursor: allAnswered ? 'pointer' : 'default'
-            }}
-          >
-            提交
-          </button>
-        )}
-      </header>
-    );
-  }
+export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, seconds }) {
+  const isDanger = seconds >= 300;
+  const isCritical = seconds >= 360;
+  
+  return (
+    <header className="fixed top-0 w-full h-15 bg-white/90 backdrop-blur-md border-b border-gray-200 z-50 flex justify-between items-center px-5 shadow-sm">
+      <h2 className={`m-0 font-semibold text-lg ${
+        submitted 
+          ? 'text-gray-800' 
+          : isDanger 
+            ? isCritical 
+              ? 'timer-danger font-bold' 
+              : 'text-red-600'
+            : 'text-gray-700'
+      }`}>
+        {timerText}
+      </h2>
+      
+      {!submitted && (
+        <button
+          onClick={onSubmit}
+          disabled={!allAnswered}
+          className={`
+            px-6 py-2.5 rounded-lg font-medium text-sm transition-all duration-200 min-w-20 shadow-sm
+            ${allAnswered 
+              ? 'bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white shadow-green-200 hover:shadow-md transform hover:scale-105' 
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            }
+          `}
+        >
+          提交
+        </button>
+      )}
+    </header>
+  );
+}

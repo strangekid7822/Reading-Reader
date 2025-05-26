@@ -16,30 +16,14 @@ export default function BottomPanel({
   return (
     <section
       ref={footerRef}
-      style={{
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        background: '#ddd',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        paddingTop: '15px',
-        paddingBottom: submitted ? '60px' : '30px',
-        transition: 'padding-bottom 0.3s ease, height 0.3s ease',
-        height: submitted ? '55vh' : '40vh',
-      }}
+      className={`
+        fixed bottom-0 w-full bg-gradient-to-t from-white via-white/95 to-white/90 
+        backdrop-blur-md border-t border-gray-200 flex flex-col justify-start items-center 
+        pt-4 shadow-2xl transition-all duration-300 ease-in-out
+        ${submitted ? 'pb-15 h-[55vh]' : 'pb-8 h-[40vh]'}
+      `}
     >
-      <div
-        style={{
-          flex: 1,
-          width: '100%',
-          overflowY: submitted ? 'auto' : 'hidden',
-          minHeight: 0,
-          WebkitOverflowScrolling: 'touch',
-        }}
-      >
+      <div className="flex-1 w-full overflow-y-auto min-h-0" style={{ WebkitOverflowScrolling: 'touch' }}>
         <QuestionSwiper
           questions={questions}
           answers={answers}
@@ -51,18 +35,18 @@ export default function BottomPanel({
       </div>
 
       {/* dots pagination */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+      <div className="flex justify-center mt-3 pb-2">
         {questions.map((_, idx) => (
           <div
             key={idx}
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: idx === currentIndex ? '#555' : '#ccc',
-              margin: '0 4px'
-            }}
-          ></div>
+            className={`
+              w-2 h-2 rounded-full mx-1.5 transition-all duration-200
+              ${idx === currentIndex 
+                ? 'bg-gradient-to-r from-blue-500 to-purple-500 scale-125 shadow-sm' 
+                : 'bg-gray-300 hover:bg-gray-400'
+              }
+            `}
+          />
         ))}
       </div>
     </section>
