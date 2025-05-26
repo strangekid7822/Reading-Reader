@@ -20,7 +20,7 @@ export default function BottomPanel({
         fixed bottom-0 w-full bg-gradient-to-t from-white via-white/95 to-white/90 
         backdrop-blur-md border-t border-gray-200 flex flex-col justify-start items-center 
         shadow-2xl transition-all duration-300 ease-in-out pt-2
-        ${submitted ? 'h-[55vh]' : 'h-[40vh]'}
+        ${submitted ? 'h-[43vh]' : 'h-[38vh]'}
       `}
     >
       <div className="flex-1 w-full overflow-y-auto min-h-0" style={{ WebkitOverflowScrolling: 'touch' }}>
