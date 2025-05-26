@@ -7,12 +7,31 @@ export default function QuestionCard({
     handleSelect,
     correctIndex
   }) {
+    const explanationVisible = submitted;
     return (
       <div className="min-w-[92%] max-w-[92%] flex-shrink-0 px-4 sm:px-6 snap-start snap-always">
         <div 
           className={`h-full pr-1 ${submitted ? 'overflow-y-auto' : 'overflow-y-hidden'}`}
           style={{ WebkitOverflowScrolling: submitted ? 'touch' : 'auto' }}
         >
+          {submitted && (
+            <div
+              className={`
+                mt-2 mb-4 bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner
+                transition-all duration-1000 ease-out transform
+                ${explanationVisible
+                  ? 'opacity-100 scale-100 translate-y-0'
+                  : 'opacity-0 scale-90 translate-y-24'
+                }
+              `}
+              style={{ pointerEvents: explanationVisible ? 'auto' : 'none' }}
+            >
+              <div className="flex items-start space-x-2">
+                <span className="text-sm sm:text-base md:text-lg font-bold text-indigo-600 flex-shrink-0">解析：</span>
+                <span className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">{question.explanation}</span>
+              </div>
+            </div>
+          )}
           {/* Reduced margin-bottom from mb-4 to mb-2 */}
           <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-2 leading-relaxed">
             {question.text}
@@ -60,15 +79,6 @@ export default function QuestionCard({
               );
             })}
           </ul>
-          
-          {submitted && (
-            <div className="mt-6 bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner">
-              <div className="flex items-start space-x-2">
-                <span className="text-sm sm:text-base md:text-lg font-bold text-indigo-600 flex-shrink-0">解析：</span>
-                <span className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">{question.explanation}</span>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     );
