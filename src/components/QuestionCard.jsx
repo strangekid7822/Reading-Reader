@@ -25,7 +25,7 @@ export default function QuestionCard({
               
               let buttonClasses = `
                 w-full box-border text-left whitespace-normal break-words
-                py-2 sm:py-3 md:py-4 px-4
+                py-1 sm:py-1.5 md:py-2 px-4
                 rounded-xl
                 transition-all duration-200 font-medium border-2 shadow-sm
                 text-base sm:text-lg md:text-xl
