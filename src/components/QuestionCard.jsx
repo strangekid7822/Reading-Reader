@@ -17,7 +17,7 @@ export default function QuestionCard({
             {question.text}
           </h4>
           
-          <ul className="list-none p-0 space-y-2">
+          <ul className="list-none p-0 space-y-1">
             {question.options.map((opt, j) => {
               const isChosen = answers[index] === j;
               const isCorrect = j === correctIndex;
@@ -25,10 +25,9 @@ export default function QuestionCard({
               let buttonClasses = `
                 w-full box-border text-left whitespace-normal break-words
                 py-2 sm:py-3 md:py-4 px-4
-                rounded-xl mx-auto my-2
+                rounded-xl
                 transition-all duration-200 font-medium border-2 shadow-sm
                 text-base sm:text-lg md:text-xl
-                max-w-[90%] sm:max-w-[75%] md:max-w-lg
               `;
               
               if (submitted) {
@@ -41,7 +40,7 @@ export default function QuestionCard({
                 }
               } else {
                 if (isChosen) {
-                  buttonClasses += ' bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300 text-blue-800 shadow-blue-100 transform scale-[1.02]';
+                  buttonClasses += ' bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300 text-blue-800 shadow-blue-100';
                 } else {
                   buttonClasses += ' bg-white border-gray-200 text-gray-700 hover:border-gray-300 hover:shadow-md hover:bg-gray-50';
                 }
