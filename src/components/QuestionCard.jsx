@@ -8,7 +8,7 @@ export default function QuestionCard({
     correctIndex
   }) {
     return (
-      <div className="min-w-full max-w-full flex-shrink-0 px-4 sm:px-6 snap-start snap-always">
+      <div className="min-w-[92%] max-w-[92%] flex-shrink-0 px-4 sm:px-6 snap-start snap-always">
         <div 
           className={`h-full pr-1 ${submitted ? 'overflow-y-auto' : 'overflow-y-hidden'}`}
           style={{ WebkitOverflowScrolling: submitted ? 'touch' : 'auto' }}

@@ -23,7 +23,7 @@ export default function QuestionSwiper({
         `}
       </style>
       <div
-        className="swiper-container flex overflow-x-auto overflow-y-hidden h-full w-full snap-x snap-mandatory"
+        className="swiper-container flex overflow-x-auto overflow-y-hidden h-full w-full snap-x snap-mandatory pl-4"
         style={{
           scrollBehavior: 'smooth',
           WebkitOverflowScrolling: 'touch',
