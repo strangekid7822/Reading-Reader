@@ -4,8 +4,7 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
   const isCritical = seconds >= 360;
   
   return (
-    <header className="fixed top-0 w-full h-16 bg-white/90 backdrop-blur-2xl border-b border-gray-200 z-50 shadow-xl">
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-100/40 via-purple-100/20 to-pink-100/40"></div>
+    <header className="fixed top-0 w-full h-16 bg-white border-b border-gray-200 z-50 shadow-xl">
       <div className="relative h-full flex justify-between items-center px-4 sm:px-6 md:px-8">
         {/* Home button on the left */}
         <button
