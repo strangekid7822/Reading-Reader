@@ -16,7 +16,7 @@ export default function QuestionCard({
           {submitted && (
             <div
               className={`
-                mb-4 bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner
+                bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-b-xl border-b border-x border-gray-200
                 transition-all duration-800
                 ${submitted ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-full opacity-0 scale-95'}
               `}
@@ -30,7 +30,7 @@ export default function QuestionCard({
               </div>
             </div>
           )}
-          <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-2 leading-relaxed">
+          <h4 className="pt-2 text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-2 leading-relaxed">
             {question.text}
           </h4>
           

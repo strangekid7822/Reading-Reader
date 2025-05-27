@@ -18,8 +18,8 @@ export default function BottomPanel({
       ref={footerRef}
       className={`
         fixed bottom-0 w-full bg-gradient-to-t from-white via-white/95 to-white/90 
-        backdrop-blur-md border-t border-gray-200 flex flex-col justify-start items-center 
-        shadow-2xl transition-all duration-300 ease-in-out pt-2
+        backdrop-blur-md border-gray-200 flex flex-col justify-start items-center 
+        shadow-[0_-8px_20px_-6px_rgba(0,0,0,0.15)] transition-all duration-300 ease-in-out
         ${submitted ? 'h-[43vh]' : 'h-[38vh]'}
       `}
     >

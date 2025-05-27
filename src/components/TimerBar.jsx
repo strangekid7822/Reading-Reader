@@ -30,7 +30,7 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
               relative px-6 sm:px-8 py-2.5 rounded-full font-semibold text-sm sm:text-base
               transition-all duration-300 transform hover:scale-105
               ${allAnswered 
-                ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 text-white shadow-xl hover:shadow-2xl hover:from-blue-600 hover:via-purple-600 hover:to-indigo-600 before:absolute before:inset-0 before:bg-white/20 before:rounded-full before:opacity-0 hover:before:opacity-100 before:transition-opacity overflow-hidden' 
+                ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 text-white shadow-xl hover:shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-indigo-600 before:absolute before:inset-0 before:bg-white/20 before:rounded-full before:opacity-0 hover:before:opacity-100 before:transition-opacity overflow-hidden' 
                 : 'bg-gray-200/80 text-gray-400 cursor-not-allowed'
               }
             `}
