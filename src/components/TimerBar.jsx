@@ -19,16 +19,10 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
 
         {/* Timer in the center */}
         <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-3">
-          <div className="w-2.5 h-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
-          <h2 className={`font-bold text-lg sm:text-xl tracking-tight ${
-            submitted 
-              ? 'bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent' 
-              : isDanger 
-                ? isCritical 
-                  ? 'bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent animate-pulse' 
-                  : 'bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent'
-                : 'bg-gradient-to-r from-gray-700 to-slate-800 bg-clip-text text-transparent'
-          }`}>
+          {!submitted && (
+            <div className="w-2.5 h-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
+          )}
+          <h2 className="text-blue-400 font-bold text-lg sm:text-xl tracking-tight text-center">
             {timerText}
           </h2>
         </div>

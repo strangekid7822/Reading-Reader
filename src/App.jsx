@@ -58,9 +58,14 @@ function App() {
         timerText={
           !submitted
             ? `Timer: ${formatTime(seconds)}`
-            : `用时：${Math.floor(usedTime / 60)}分${usedTime % 60}秒｜正确率：${Math.round(
-                answers.filter((ans, i) => ans === correctAnswers[i]).length / questions.length * 100
-              )}%`
+            : (
+              <>
+                用时：{Math.floor(usedTime / 60)}分{usedTime % 60}秒<br />
+                正确率：{Math.round(
+                  answers.filter((ans, i) => ans === correctAnswers[i]).length / questions.length * 100
+                )}%
+              </>
+            )
         }
         allAnswered={answers.every(ans => ans !== null)}
         onSubmit={() => {
