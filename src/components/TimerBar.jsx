@@ -10,9 +10,9 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
         {/* Home button on the left */}
         <button
           onClick={() => window.location.href = '/'}
-          className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-gray-100 to-slate-100 hover:from-gray-200 hover:to-slate-200 transition-all duration-200 shadow-sm hover:shadow-md"
+          className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-200 hover:bg-blue-400 transition-all duration-200 shadow-sm hover:shadow-none"
         >
-          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a2 2 0 002 2h10a2 2 0 002-2V10M9 21h6" />
           </svg>
         </button>
