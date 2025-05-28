@@ -16,7 +16,7 @@ export default function QuestionCard({
           {submitted && (
             <div
               className={`
-                bg-gradient-to-r from-slate-50 to-gray-50 p-4 rounded-b-xl border-b border-x border-gray-200
+                bg-gradient-to-r from-gray-50 to-slate-50 p-4 rounded-b-xl border-b border-x border-gray-200
                 transition-all duration-800
                 ${submitted ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-full opacity-0 scale-95'}
               `}
@@ -25,7 +25,7 @@ export default function QuestionCard({
               }}
             >
               <div className="flex items-start space-x-2">
-                <span className="text-sm sm:text-base md:text-lg font-bold text-indigo-600 flex-shrink-0">解析：</span>
+                <span className="text-sm sm:text-base md:text-lg font-bold text-violet-700 flex-shrink-0">解析：</span>
                 <span className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">{question.explanation}</span>
               </div>
             </div>
@@ -49,15 +49,15 @@ export default function QuestionCard({
               
               if (submitted) {
                 if (isCorrect) {
-                  buttonClasses += ' bg-gradient-to-r from-emerald-50 to-green-50 border-emerald-300 text-emerald-800 shadow-emerald-100';
+                  buttonClasses += ' bg-gradient-to-r from-teal-50 to-emerald-50 border-teal-400 text-teal-900 shadow-emerald-100';
                 } else if (isChosen) {
-                  buttonClasses += ' bg-gradient-to-r from-red-50 to-rose-50 border-red-300 text-red-800 shadow-red-100';
+                  buttonClasses += ' bg-gradient-to-r from-rose-50 to-red-50 border-rose-400 text-rose-900 shadow-red-100';
                 } else {
                   buttonClasses += ' bg-white border-gray-200 text-gray-700';
                 }
               } else {
                 if (isChosen) {
-                  buttonClasses += ' bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300 text-blue-800 shadow-blue-100';
+                  buttonClasses += ' bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-400 text-blue-900 shadow-blue-100';
                 } else {
                   buttonClasses += ' bg-white border-gray-200 text-gray-700 hover:border-gray-300 hover:shadow-md hover:bg-gray-50';
                 }

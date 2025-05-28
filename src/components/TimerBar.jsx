@@ -5,11 +5,12 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
   
   return (
     <header className="fixed top-0 w-full h-16 bg-white border-b border-gray-200 z-50 shadow-xl">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/40 via-transparent to-cyan-50/40"></div>
       <div className="relative h-full flex justify-between items-center px-4 sm:px-6 md:px-8">
         {/* Home button on the left */}
         <button
           onClick={() => window.location.href = '/'}
-          className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-sm hover:shadow-md"
+          className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-gray-100 to-slate-100 hover:from-gray-200 hover:to-slate-200 transition-all duration-200 shadow-sm hover:shadow-md"
         >
           <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a2 2 0 002 2h10a2 2 0 002-2V10M9 21h6" />
@@ -18,15 +19,15 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
 
         {/* Timer in the center */}
         <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-3">
-          <div className="w-2.5 h-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full animate-pulse shadow-lg shadow-indigo-500/50"></div>
+          <div className="w-2.5 h-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
           <h2 className={`font-bold text-lg sm:text-xl tracking-tight ${
             submitted 
-              ? 'bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent' 
+              ? 'bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent' 
               : isDanger 
                 ? isCritical 
-                  ? 'bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent animate-pulse' 
-                  : 'bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent'
-                : 'bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent'
+                  ? 'bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent animate-pulse' 
+                  : 'bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent'
+                : 'bg-gradient-to-r from-gray-700 to-slate-800 bg-clip-text text-transparent'
           }`}>
             {timerText}
           </h2>
@@ -40,7 +41,7 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
               relative px-6 sm:px-8 py-2.5 rounded-full font-semibold text-sm sm:text-base
               transition-all duration-300 transform hover:scale-105
               ${allAnswered 
-                ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 text-white shadow-xl hover:shadow-md hover:from-blue-600 hover:via-purple-600 hover:to-indigo-600 before:absolute before:inset-0 before:bg-white/20 before:rounded-full before:opacity-0 hover:before:opacity-100 before:transition-opacity overflow-hidden' 
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-xl hover:shadow-md hover:from-blue-700 hover:to-cyan-700 before:absolute before:inset-0 before:bg-white/20 before:rounded-full before:opacity-0 hover:before:opacity-100 before:transition-opacity overflow-hidden' 
                 : 'bg-gray-200/80 text-gray-400 cursor-not-allowed'
               }
             `}

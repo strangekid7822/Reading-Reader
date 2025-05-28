@@ -42,7 +42,7 @@ export default function BottomPanel({
             className={`
               w-2 h-2 rounded-full mx-1.5 transition-all duration-200
               ${idx === currentIndex 
-                ? 'bg-gradient-to-r from-blue-500 to-purple-500 scale-125 shadow-sm' 
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 scale-125 shadow-sm' 
                 : 'bg-gray-300 hover:bg-gray-400'
               }
             `}

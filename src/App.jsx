@@ -51,7 +51,7 @@ function App() {
 
   // UI Layout: Timer (top), Reading (scrollable), Questions (bottom)
   return (
-    <div className="font-sans h-screen flex flex-col bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="font-sans h-screen flex flex-col bg-gradient-to-br from-gray-50 to-slate-50">
       {/* Fixed timer / score bar */}
       <TimerBar
         submitted={submitted}
