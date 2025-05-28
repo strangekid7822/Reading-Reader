@@ -24,7 +24,6 @@ export default function QuestionCard({
               }}
             >
               <div className="flex items-start space-x-2">
-                <span className="text-sm sm:text-base md:text-lg font-bold text-violet-700 flex-shrink-0">解析：</span>
                 <span className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">{question.explanation}</span>
               </div>
             </div>
