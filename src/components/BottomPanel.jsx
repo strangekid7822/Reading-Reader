@@ -23,7 +23,7 @@ export default function BottomPanel({
         ${submitted ? 'h-[43vh]' : 'h-[38vh]'}
       `}
     >
-      <div className="flex-1 w-full overflow-y-auto min-h-0" style={{ WebkitOverflowScrolling: 'touch' }}>
+      <div className="flex-1 w-full overflow-y-auto min-h-0 scrolling-touch">
         <QuestionSwiper
           questions={questions}
           answers={answers}

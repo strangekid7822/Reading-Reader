@@ -23,12 +23,7 @@ export default function QuestionSwiper({
         `}
       </style>
       <div
-        className="swiper-container flex overflow-x-auto overflow-y-hidden h-full w-full snap-x snap-mandatory pl-4"
-        style={{
-          scrollBehavior: 'smooth',
-          WebkitOverflowScrolling: 'touch',
-          overscrollBehaviorX: 'contain',
-        }}
+        className="swiper-container flex overflow-x-auto overflow-y-hidden h-full w-full snap-x snap-mandatory pl-4 scroll-smooth scrolling-touch overscroll-x-contain"
         onScroll={handleScroll}
       >
         {questions.map((q, i) => (

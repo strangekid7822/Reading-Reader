@@ -1,6 +1,6 @@
 export default function ExplanationText({ text }) {
     return (
-      <p style={{ marginTop: '10px' }}>
+      <p className="mt-2.5">
         {text}
       </p>
     );

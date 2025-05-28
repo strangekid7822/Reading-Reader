@@ -5,7 +5,7 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
   
   return (
     <header className="fixed top-0 w-full h-16 bg-white border-b border-gray-200 z-50 shadow-md">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/40 via-transparent to-cyan-50/40"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="relative h-full flex justify-between items-center px-4 sm:px-6 md:px-8">
         {/* Home button on the left */}
         <button

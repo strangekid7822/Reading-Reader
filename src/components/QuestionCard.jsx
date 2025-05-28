@@ -9,9 +9,8 @@ export default function QuestionCard({
   }) {
     return (
       <div className="min-w-[92%] max-w-[92%] flex-shrink-0 px-4 sm:px-6 snap-start snap-always">
-        <div 
-          className={`h-full pr-1 ${submitted ? 'overflow-y-auto' : 'overflow-y-hidden'}`}
-          style={{ WebkitOverflowScrolling: submitted ? 'touch' : 'auto' }}
+        <div
+          className={`h-full pr-1 ${submitted ? 'overflow-y-auto scrolling-touch' : 'overflow-y-hidden'}`}
         >
           {submitted && (
             <div

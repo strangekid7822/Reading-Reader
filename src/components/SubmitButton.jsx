@@ -3,7 +3,7 @@ export default function SubmitButton({ disabled, onSubmit }) {
       <button
         disabled={disabled}
         onClick={onSubmit}
-        style={{ marginTop: '10px' }}
+        className="mt-2.5"
       >
         提交
       </button>
