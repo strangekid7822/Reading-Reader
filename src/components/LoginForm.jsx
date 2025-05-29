@@ -1,14 +1,65 @@
 import { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 
-export default function LoginForm({ onLogin }) {
-  const [username, setUsername] = useState('');
+export default function LoginForm({ onSwitchToRegister }) {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  
+  const { login, error: authError, setError } = useAuth();
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!email.trim()) {
+      newErrors.email = '邮箱不能为空';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = '请输入有效的邮箱地址';
+    }
+    
+    if (!password) {
+      newErrors.password = '密码不能为空';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username && password) {
-      onLogin(username);
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsLoading(true);
+    const result = await login(email, password);
+    setIsLoading(false);
+    
+    if (result.success) {
+      // Login successful - App component will handle the view change
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (errors.email) {
+      setErrors(prev => ({ ...prev, email: '' }));
+    }
+    if (authError) {
+      setError(null);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (errors.password) {
+      setErrors(prev => ({ ...prev, password: '' }));
+    }
+    if (authError) {
+      setError(null);
     }
   };
 
@@ -20,19 +71,29 @@ export default function LoginForm({ onLogin }) {
             欢迎回来
           </h2>
           
+          {authError && (
+            <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-sm text-red-600">{authError}</p>
+            </div>
+          )}
+          
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                用户名
+                邮箱
               </label>
               <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
-                placeholder="请输入用户名"
-                required
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                className={`w-full px-4 py-3 rounded-lg border ${
+                  errors.email ? 'border-red-300' : 'border-gray-300'
+                } focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none`}
+                placeholder="请输入邮箱地址"
               />
+              {errors.email && (
+                <p className="mt-1 text-xs text-red-600">{errors.email}</p>
+              )}
             </div>
             
             <div>
@@ -43,10 +104,11 @@ export default function LoginForm({ onLogin }) {
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                  onChange={handlePasswordChange}
+                  className={`w-full px-4 py-3 pr-12 rounded-lg border ${
+                    errors.password ? 'border-red-300' : 'border-gray-300'
+                  } focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none`}
                   placeholder="请输入密码"
-                  required
                 />
                 <button
                   type="button"
@@ -62,22 +124,31 @@ export default function LoginForm({ onLogin }) {
                   </svg>
                 </button>
               </div>
+              {errors.password && (
+                <p className="mt-1 text-xs text-red-600">{errors.password}</p>
+              )}
             </div>
             
             <button
               type="submit"
-              className="w-full py-3 px-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
+              disabled={isLoading}
+              className={`w-full py-3 px-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 ${
+                isLoading ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             >
-              登录
+              {isLoading ? '登录中...' : '登录'}
             </button>
           </form>
           
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               还没有账号？
-              <a href="#" className="text-blue-600 hover:text-blue-700 font-medium ml-1">
+              <button
+                onClick={onSwitchToRegister}
+                className="text-blue-600 hover:text-blue-700 font-medium ml-1"
+              >
                 立即注册
-              </a>
+              </button>
             </p>
           </div>
         </div>
