@@ -22,7 +22,20 @@ export default function TimerBar({ submitted, timerText, allAnswered, onSubmit, 
           {!submitted && (
             <div className="w-2.5 h-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50"></div>
           )}
-          <h2 className="text-blue-400 font-bold text-lg sm:text-xl tracking-tight text-center">
+          <h2
+            className={`font-bold text-lg sm:text-xl tracking-tight text-center ${
+              isCritical
+                ? 'timer-danger'
+                : isDanger
+                  ? 'text-red-600'
+                  : 'text-blue-400'
+            }`}
+            style={
+              !submitted && isDanger && !isCritical
+                ? { animation: 'blink 1s step-end infinite' }
+                : undefined
+            }
+          >
             {timerText}
           </h2>
         </div>
