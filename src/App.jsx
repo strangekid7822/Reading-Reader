@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Header from './components/Header';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
+import NameInput from './components/NameInput';
 import ExerciseList from './components/ExerciseList';
 import ExerciseView from './ExerciseView';
 
 // Main App content wrapped with auth logic
 function AppContent() {
   const [currentView, setCurrentView] = useState('auth'); // 'auth', 'exercises', 'exercise'
-  const [authView, setAuthView] = useState('login'); // 'login' or 'register'
   const [selectedExerciseId, setSelectedExerciseId] = useState(null);
   
   const { user, logout, loading } = useAuth();
@@ -47,20 +45,12 @@ function AppContent() {
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-gray-50 to-slate-50">
       <Header 
-        username={user?.username} 
+        username={user?.name} 
         onLogout={logout} 
       />
       
       <main>
-        {currentView === 'auth' && (
-          <>
-            {authView === 'login' ? (
-              <LoginForm onSwitchToRegister={() => setAuthView('register')} />
-            ) : (
-              <RegisterForm onSwitchToLogin={() => setAuthView('login')} />
-            )}
-          </>
-        )}
+        {currentView === 'auth' && <NameInput />}
         
         {currentView === 'exercises' && (
           <ExerciseList onSelectExercise={handleSelectExercise} />
