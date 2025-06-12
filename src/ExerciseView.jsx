@@ -54,6 +54,7 @@ export default function ExerciseView() {
     <div className="font-sans h-screen flex flex-col bg-gradient-to-br from-gray-50 to-slate-50">
       {/* Fixed timer / score bar */}
       <TimerBar
+        mode="exercise"
         submitted={submitted}
         timerText={
           !submitted
@@ -76,7 +77,7 @@ export default function ExerciseView() {
       />
 
       {/* Scrollable article */}
-      <ArticleReader height={`calc(100dvh - ${footerHeight}px - 60px)`}>
+      <ArticleReader>
         {article.title && <h3 className="text-2xl font-bold text-gray-800 mb-6">{article.title}</h3>}
         {article.body
           .split(/\n\s*\n/)
@@ -137,6 +138,14 @@ export default function ExerciseView() {
               transform: translateY(0) scale(1);
               opacity: 1;
             }
+          }
+          /* Hide scrollbar for bottom panel */
+          .hide-scrollbar {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+          }
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none; /* Safari/Chrome */
           }
         `}
       </style>

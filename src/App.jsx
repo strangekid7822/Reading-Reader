@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-import Header from './components/Header';
+import TimerBar from './components/TimerBar';
 import NameInput from './components/NameInput';
 import ExerciseList from './components/ExerciseList';
 import ExerciseView from './ExerciseView';
@@ -44,16 +44,20 @@ function AppContent() {
 
   return (
     <div className="font-sans min-h-screen bg-gradient-to-br from-gray-50 to-slate-50">
-      <Header 
-        username={user?.name} 
-        onLogout={logout} 
-      />
-      
       <main>
         {currentView === 'auth' && <NameInput />}
         
         {currentView === 'exercises' && (
-          <ExerciseList onSelectExercise={handleSelectExercise} />
+          <>
+            <TimerBar 
+              mode="list" 
+              username={user?.name} 
+              onLogout={logout} 
+            />
+            <div className="pt-16">
+              <ExerciseList onSelectExercise={handleSelectExercise} />
+            </div>
+          </>
         )}
         
         {currentView === 'exercise' && (
